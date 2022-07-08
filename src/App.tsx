@@ -4,8 +4,11 @@ import Form from './Components/Common/Form';
 import './App.css';
 
 function App() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const handleAction = (r) => {
+    console.log(email, password, r);
+  };
   return (
     <Router>
       <div className="App">
@@ -16,6 +19,9 @@ function App() {
             element={(
               <Form
                 title="login"
+                setEmail={setEmail}
+                setPassword={setPassword}
+                handleAction={() => handleAction(1)}
               />
             )}
           />
@@ -24,6 +30,9 @@ function App() {
             element={(
               <Form
                 title="register"
+                setEmail={setEmail}
+                setPassword={setPassword}
+                handleAction={() => handleAction(2)}
               />
             )}
           />
