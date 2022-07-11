@@ -23,11 +23,12 @@
         "import/resolver": {
             "node": {
                 "extensions": [".js", ".jsx", ".ts", ".tsx"]
-              },
+            },
             "typescript": {}
         }
     },
     "rules": {
+        "no-console": 0,
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
         "import/prefer-default-export": "off",
         "no-shadow": "off",
