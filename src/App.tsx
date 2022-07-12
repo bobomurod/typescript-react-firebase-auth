@@ -7,11 +7,14 @@ import {
   Route,
   // useNavigate,
 } from 'react-router-dom';
-import { app } from '../firebase-config';
+import { initializeApp } from 'firebase/app';
+import { config } from './config';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import Form from './Components/Common/Form';
 import Home from './Components/Home';
 import './App.css';
+
+initializeApp(config.firebaseConfig);
 
 function App() {
   const [email, setEmail] = useState<string>('');
@@ -48,7 +51,7 @@ function App() {
               title="login"
               setEmail={setEmail}
               setPassword={setPassword}
-              handleAction={() => handleAction(1)}
+              handleAction={() => handleAction('sign-in')}
             />
             )}
         />
@@ -59,7 +62,7 @@ function App() {
               title="register"
               setEmail={setEmail}
               setPassword={setPassword}
-              handleAction={() => handleAction(2)}
+              handleAction={() => handleAction('sign-up')}
             />
             )}
         />
